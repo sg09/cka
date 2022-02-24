@@ -9,7 +9,6 @@ Questions:
 <p>
 
 ```bash
-# Create the namespace first
 kubectl run nginx --image=nginx
 ```
 </p>
@@ -64,21 +63,6 @@ Questions:
 <details><summary>Solution</summary>
 <p>
 
-```yaml
-
-kubectl exec envvar -- env | grep PLANET
-PLANET=blue
-```
-
-</p>
-</details>
-
-Questions:
-- Create a configmap named `space` with two values `planet=blue` and `moon=white`.
-- Create a pod similar to the previous where you have two environment variables taken from the above configmap and show them in the container.
-
-<details><summary>Solution</summary>
-<p>
 ```bash
 kubectl scale rs new-replica-set --replicas=2 --record
 ```
