@@ -201,3 +201,43 @@ kubectl apply -f deploy.yaml
 
 </p>
 </details>
+
+
+Questions:
+- Create a a Docker file with command. Override the values in the pod.
+
+<details><summary>Solution</summary>
+<p>
+
+```bash
+cat Dockerfile
+FROM python:3.6-alpine
+RUN pip install flask
+COPY . /opt/
+EXPOSE 8080
+WORKDIR /opt
+ENTRYPOINT ["python", "app.py"]
+CMD ["--color", "blue"]
+
+cat pod.yaml
+--
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: webapp
+  labels:
+      name: webapp 
+spec:
+  containers:
+  - name: simple-webapp
+    image: siva/webapp-color
+    command: ["python", "app.py"] --this is equivalent to ENTRYPOINT in Dockerfile
+    args: ["--color", "red"]  -- this is equivalent to CMD in Dockerfile
+        
+kubectl apply -f pod.yaml        
+```
+
+
+</p>
+</details>
+
