@@ -7,8 +7,19 @@ Questions:
 <p>
 
 ```bash
-# Create the namespace first
 kubectl taint node node01 key1=value1:NoSchedule
+```
+</p>
+</details>
+
+Questions:
+- Make a node node01 unschedulable
+
+<details><summary>Solution</summary>
+<p>
+
+```bash
+kubectl cordon  node01 
 ```
 </p>
 </details>
