@@ -15,13 +15,13 @@ Questions:
    apt update
    apt install kubeadm=1.20.0-00
    kubeadm upgrade apply v1.20.0
-   ppt install kubelet=1.20.0-00
+   apt install kubelet=1.20.0-00
    systemctl restart kubelet
    kubectl uncordon controlplane
 
    (2) Worker node:
-   Kc drain node01
-   Ssh node01
+   kc drain node01
+   ssh node01
    apt update
    apt install kubeadm=1.20.0-00
    kubeadm upgrade node
@@ -29,7 +29,7 @@ Questions:
    systemctl restart kubelet
    exit
   
-   Kc uncordon node01
+   kc uncordon node01
 
 ```
 </p>
